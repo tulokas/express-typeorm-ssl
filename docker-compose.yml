@@ -1,0 +1,28 @@
+services:
+  mysql:
+    build: ./mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: testdb
+    volumes:
+      - ./mysql/certs:/etc/mysql/certs
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./mysql/init:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+
+  backend:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client-cert:/certs
+    depends_on:
+      - mysql
+    entrypoint: ["sh", "wait-for-mysql.sh"]
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASS=rootpass
+      - DB_NAME=testdb

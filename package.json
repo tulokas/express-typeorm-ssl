@@ -1,0 +1,19 @@
+{
+  "name": "express-typeorm-ssl",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "ts-node-dev --respawn src/app.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mysql2": "^3.4.0",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.15.30",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  }
+}

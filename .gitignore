@@ -1,0 +1,32 @@
+# Node modules and build
+node_modules/
+dist/
+.env
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Docker volumes and MySQL data (just in case)
+*.pid
+*.sock
+
+# Certs (NEVER push any certs)
+mysql/certs/*
+client-cert/*
+
+# Except the README placeholder files if needed
+!mysql/certs/.gitkeep
+!client-cert/.gitkeep
+
+# Other common ignores
+*.pem
+*.key
+*.req
+*.crt
+
+# Docker files
+**/vendor/
+**/node_modules/
+*.log
+
+
